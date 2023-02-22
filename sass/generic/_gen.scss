@@ -1,0 +1,33 @@
+.icon {
+	cursor: pointer;
+	display: flex;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+	&--medium {
+		width: 22px;
+		height: 22px;
+	}
+}
+
+a {
+	color: var(--text-dark);
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+body {
+	font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: var(--text-dark);
+}
+
+input,
+textarea,
+select {
+	font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: var(--text-dark);
+}
