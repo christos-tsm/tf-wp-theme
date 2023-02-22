@@ -53,20 +53,30 @@
 				let addTemp = (temp += 1);
 				$(`${displayValue}`).text(addTemp);
 				$(`${hiddenInput}`).val(addTemp);
+				/** Remove disabled minus if any */
+				if ($(this).parent().find('span[data-operation="minus"]')) {
+					$(this).parent().find('span[data-operation="minus"]').removeClass("handle-value--disabled");
+				}
 			}
 			if (op === "minus") {
 				let temp = Number($(`${displayValue}`).text());
-				if (hiddenInput === ".header-form--active input[name='adults']") {
+				if (hiddenInput === ".header-form--active input[name='adults']" || hiddenInput === "input[name='adults']") {
 					if (temp > 1) {
 						console.log(hiddenInput === ".header-form--active input[name='adults']");
 						let addTemp = (temp -= 1);
 						$(`${displayValue}`).text(addTemp);
 						$(`${hiddenInput}`).val(addTemp);
+						if (temp <= 1) {
+							$(this).addClass("handle-value--disabled");
+						}
 					}
 				} else if (temp > 0) {
 					let addTemp = (temp -= 1);
 					$(`${displayValue}`).text(addTemp);
 					$(`${hiddenInput}`).val(addTemp);
+					if (temp === 0) {
+						$(this).addClass("handle-value--disabled");
+					}
 				}
 			}
 		});

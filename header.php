@@ -41,3 +41,4 @@
 			);
 			?>
 		</header><!-- #masthead -->
+		<main class="site-main">

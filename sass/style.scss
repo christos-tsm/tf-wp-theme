@@ -23,6 +23,9 @@ Text Domain: taxi-transfer
 @import "./components/header-form";
 @import "./components/page-header";
 @import "./components/breadcrump";
+@import "./components/transfer-filters";
+@import "./components/footer";
 /* Pages
 --------------------------------------------- */
 @import "./pages/homepage";
+@import "./pages/transfer";

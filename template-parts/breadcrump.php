@@ -1,3 +1,3 @@
-<div class="breadcrump">
+<nav class="breadcrump">
     <?= get_breadcrumb(); ?>
-</div>
+</nav>

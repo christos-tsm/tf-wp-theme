@@ -67,7 +67,7 @@ $tours_query = new WP_Query($tours_args);
                     <input type="hidden" name="children" id="children" value="0">
                     <label class="user-select--none" for="from">Children (3 - 12)</label>
                     <div class="input-number__container">
-                        <span data-operation="minus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
+                        <span data-operation="minus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="children-value" class="user-select--none">0</span>
                         <span data-operation="plus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/plus.svg'); ?></span>
                     </div>
@@ -76,7 +76,7 @@ $tours_query = new WP_Query($tours_args);
                     <input type="hidden" name="infants" id="infants" value="0">
                     <label class="user-select--none" for="from">Infants (0 - 2)</label>
                     <div class="input-number__container">
-                        <span data-operation="minus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
+                        <span data-operation="minus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="infants-value" class="user-select--none">0</span>
                         <span data-operation="plus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/plus.svg'); ?></span>
                     </div>
@@ -125,7 +125,7 @@ $tours_query = new WP_Query($tours_args);
                     <input type="hidden" name="children" id="children" value="0">
                     <label class="user-select--none" for="from">Children (3 - 12)</label>
                     <div class="input-number__container">
-                        <span data-operation="minus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
+                        <span data-operation="minus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="children-value" class="user-select--none">0</span>
                         <span data-operation="plus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/plus.svg'); ?></span>
                     </div>
@@ -134,7 +134,7 @@ $tours_query = new WP_Query($tours_args);
                     <input type="hidden" name="infants" id="infants" value="0">
                     <label class="user-select--none" for="from">Infants (0 - 2)</label>
                     <div class="input-number__container">
-                        <span data-operation="minus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
+                        <span data-operation="minus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="infants-value" class="user-select--none">0</span>
                         <span data-operation="plus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/plus.svg'); ?></span>
                     </div>

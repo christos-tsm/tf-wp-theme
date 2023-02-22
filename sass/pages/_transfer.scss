@@ -1,0 +1,9 @@
+.archive-content {
+	flex: 1;
+	&__container {
+		max-width: 100%;
+		width: 1500px;
+		margin: auto;
+		display: flex;
+	}
+}
