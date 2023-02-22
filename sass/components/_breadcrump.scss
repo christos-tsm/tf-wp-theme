@@ -1,0 +1,17 @@
+.breadcrump {
+	max-width: 100%;
+	width: 1500px;
+	margin: 40px auto;
+	&__divider {
+		margin: 0 8px;
+	}
+
+	&__link {
+		color: var(--text-dark);
+		font-weight: 600;
+	}
+
+	&__title {
+		opacity: 0.8;
+	}
+}

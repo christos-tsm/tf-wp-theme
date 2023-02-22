@@ -315,6 +315,25 @@ select {
 	z-index: 1;
 }
 
+.breadcrump {
+	max-width: 100%;
+	width: 1500px;
+	margin: 40px auto;
+}
+
+.breadcrump__divider {
+	margin: 0 8px;
+}
+
+.breadcrump__link {
+	color: var(--text-dark);
+	font-weight: 600;
+}
+
+.breadcrump__title {
+	opacity: 0.8;
+}
+
 /* Pages
 --------------------------------------------- */
 .homepage-header__container {
