@@ -1,0 +1,144 @@
+.site-footer {
+	background-color: var(--text-dark);
+	padding: 50px 0 0;
+
+	&__top {
+		display: flex;
+		justify-content: center;
+		max-width: 100%;
+		width: 1320px;
+		margin: auto;
+		border-bottom: 1px solid #fff;
+		padding-bottom: 50px;
+		& > a {
+			display: flex;
+		}
+	}
+
+	&__cols {
+		padding: 50px 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		max-width: 100%;
+		width: 1320px;
+		margin: auto;
+
+		@media screen and (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (min-width: 1025px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	&__col {
+		color: #fff;
+		h5 {
+			color: #fff;
+			font-size: 22px;
+			margin-bottom: 25px;
+		}
+
+		ul {
+			li {
+				&:not(:last-child) {
+					margin-bottom: 20px;
+				}
+				a {
+					color: #fff;
+					display: flex;
+					gap: 8px;
+					transition: all ease-in-out 250ms;
+					&:hover {
+						opacity: 0.6;
+					}
+				}
+			}
+		}
+	}
+
+	&__newsletter {
+		input[type="email"] {
+			border: 1px solid #fff;
+			height: 42px;
+			width: 260px;
+			outline: none;
+			background-color: transparent;
+			border-radius: 20px;
+			padding: 0 10px;
+			color: #fff;
+		}
+
+		form {
+			margin-top: 30px;
+
+			button[type="submit"] {
+				width: 42px;
+				height: 42px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-left: 10px;
+				cursor: pointer;
+				transition: all ease-in-out 250ms;
+
+				svg {
+					line {
+						transition: all ease-in-out 250ms;
+					}
+				}
+
+				&:hover {
+					background-color: var(--primary);
+					svg {
+						line {
+							stroke: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		max-width: 100%;
+		width: 1600px;
+		margin: auto;
+		border-top: 1px solid #707070;
+		padding: 20px 0;
+		display: flex;
+		color: #fff;
+	}
+
+	&__copyrights {
+		flex: 1;
+	}
+
+	&__social {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+		align-items: center;
+		a {
+			transition: all ease-in-out 250ms;
+			&:hover {
+				opacity: 0.6;
+			}
+		}
+	}
+
+	&__n22 {
+		flex: 1;
+		display: flex;
+		justify-content: flex-end;
+		a {
+			color: #fff;
+			transition: all ease-in-out 250ms;
+			&:hover {
+				color: var(--primary);
+			}
+		}
+	}
+}

@@ -1,0 +1,380 @@
+.single-tours {
+	&-intro {
+		height: 100vh;
+		position: relative;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&__buttons {
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			gap: 40px;
+		}
+	}
+
+	&-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&__container {
+			padding: 60px 0;
+			box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+			margin-bottom: 60px;
+		}
+	}
+
+	&-title {
+	}
+
+	&-nav {
+		display: flex;
+		gap: 65px;
+		&__item {
+			a {
+				font-size: 22px;
+				position: relative;
+				transition: all ease-in-out 250ms;
+				&::before {
+					content: "";
+					position: absolute;
+					left: 0;
+					bottom: -5px;
+					height: 2px;
+					width: 0%;
+					background-color: var(--yellow);
+					transition: all ease-in-out 250ms;
+				}
+			}
+			&:hover,
+			&--active {
+				a {
+					color: var(--yellow);
+					&::before {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	&-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		&__container {
+			display: flex;
+			gap: 60px;
+		}
+	}
+
+	&-sidebar {
+		flex: 1;
+		max-width: 535px;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+}
+
+.section {
+	&-header {
+		font-size: 30px;
+		&__container {
+			padding-bottom: 30px;
+			margin-bottom: 30px;
+			border-bottom: 2px solid var(--yellow);
+		}
+	}
+
+	&-tours {
+		&__itinerary {
+			ul {
+				li {
+					&:not(:last-child) {
+						margin-bottom: 25px;
+					}
+				}
+			}
+		}
+	}
+
+	&-content {
+		p {
+			font-size: 18px;
+		}
+		ul {
+			gap: 60px;
+			li {
+				display: flex;
+				gap: 4px;
+				align-items: center;
+				font-size: 18px;
+				svg {
+					path {
+						fill: var(--yellow);
+					}
+				}
+
+				.indicator {
+					width: 25px;
+					height: 25px;
+					display: grid;
+					place-items: center;
+					background-color: var(--yellow);
+					font-size: 18px;
+					color: #fff;
+					border-radius: 50%;
+					margin-right: 4px;
+				}
+			}
+		}
+	}
+}
+
+.book-input-buttons__container {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+	margin: 25px 0;
+	.input-number__container {
+		margin-top: 0;
+	}
+}
+
+.book-date-picker__container {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	label {
+		font-size: 18px;
+	}
+}
+
+.tour-date {
+	height: 42px;
+	padding: 0 15px;
+	border-radius: 20px;
+	border: 1px solid var(--primary);
+	color: var(--primary);
+	cursor: pointer !important;
+	font-size: 16px;
+}
+
+.book-input-group {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0 20px;
+
+	&__extras {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 25px;
+		grid-row-gap: 25px;
+		@media screen and (max-width: 767px) {
+			grid-template-columns: 1fr;
+		}
+
+		.book-input-buttons__container {
+			margin: 0;
+			align-items: flex-start;
+			label {
+				user-select: none;
+			}
+		}
+	}
+}
+
+#tour-guide {
+	margin-top: 5px;
+	accent-color: var(--primary);
+}
+
+.section-content__car {
+	display: flex;
+	box-shadow: 0px 10px 27px 5px rgba(0, 0, 0, 0.1);
+	position: relative;
+	border: 1px solid transparent;
+	transition: all ease-in-out 250ms;
+
+	&:hover {
+		border-color: var(--primary);
+	}
+
+	& > a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+	.car-thumbnail {
+		width: 135px;
+		height: 105px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	.car-details {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+		flex: 1;
+		padding: 0 20px;
+		h3 {
+			font-size: 14px;
+		}
+		ul {
+			display: flex;
+			gap: 25px;
+			li {
+				font-size: 12px;
+				svg {
+					path {
+						fill: #000;
+					}
+				}
+			}
+		}
+	}
+
+	.car-price {
+		max-width: 150px;
+		background-color: var(--yellow);
+		text-align: center;
+		color: #fff;
+		p {
+			margin: 15px 0;
+			font-size: 20px;
+			font-weight: 600;
+		}
+		small {
+			font-size: 10px;
+			text-align: center;
+			padding: 0 5px;
+		}
+
+		.select-car {
+			a {
+				display: flex;
+				color: #fff;
+				background-color: var(--primary);
+				font-size: 12px;
+				justify-content: center;
+				padding: 10px 0;
+				margin-top: 10px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.inactive-car {
+	opacity: 0.3;
+}
+
+.selected-car {
+	opacity: 1;
+	border-color: var(--primary);
+}
+
+.total-price {
+	display: flex;
+	p {
+		flex: 1;
+		color: #fff;
+		background-color: var(--yellow);
+		padding: 15px;
+		font-size: 25px;
+		text-align: center;
+		span {
+			font-weight: 600;
+		}
+	}
+
+	a {
+		display: grid;
+		place-items: center;
+		background-color: var(--primary);
+		flex: 1;
+		max-width: 190px;
+		text-align: center;
+		color: #fff;
+		font-size: 25px;
+		transition: all ease-in-out 250ms;
+		&:hover {
+			background-color: var(--text-dark);
+		}
+	}
+}
+
+.section--inactive {
+	display: none;
+}
+
+span[data-name="car"],
+span[data-name="extra-hours"],
+span[data-name="baby-cot"],
+span[data-name="tour-guide"],
+span[data-name="booster"],
+span[data-name="date"],
+span[data-name="adults-number"],
+span[data-name="children-number"],
+span[data-name="infants-number"],
+input.hidden {
+	display: none;
+}
+
+.single-tours-gallery {
+	display: none;
+}
+
+.single-tours-video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all ease-in-out 250ms;
+	opacity: 0;
+	pointer-events: none;
+	.overlay {
+		background-color: rgba($color: #000000, $alpha: 0.7);
+		opacity: 0;
+		pointer-events: none;
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	iframe {
+		position: relative;
+		z-index: 2;
+	}
+	&--active {
+		opacity: 1;
+		pointer-events: all;
+		.overlay {
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+}

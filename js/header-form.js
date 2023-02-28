@@ -19,10 +19,8 @@
 			// format: "dd/mm/yyyy",
 			min: true,
 			onStart: function () {
-				// var queryString = window.location.search;
-				// var urlParams = new URLSearchParams(queryString);
-				// var drop_off_date = urlParams.get("drop-off-date");
-				// if (drop_off_date) return;
+				var drop_off_date = $("#date-exists").length;
+				if (drop_off_date) return;
 				var date = new Date();
 				this.set("select", [date.getFullYear(), date.getMonth(), date.getDate() + 2]);
 			},
@@ -80,10 +78,13 @@
 				}
 			}
 		});
-
 		/** Display form row after input date has changed */
 		$(".transfer-date").on("change", function () {
 			$(".header-form--active .form__row--bottom").addClass("form__row--visible");
+		});
+		/** Submit active form */
+		$(".header-form__submit button").on("click", function () {
+			$(".header-form--active").submit();
 		});
 	});
 })(jQuery);

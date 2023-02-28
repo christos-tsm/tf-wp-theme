@@ -29,34 +29,35 @@ $tours_query = new WP_Query($tours_args);
             <h3 class="header-form__header-item header-form__header-item--active" data-target='#form--transfers'><?php pll_e('Transfers'); ?></h3>
             <h3 class="header-form__header-item" data-target='#form--excursions'><?php pll_e('Excursions'); ?></h3>
         </div>
-        <form class="header-form header-form--active" method="POST" id="form--transfers">
+        <?php $transfer_page = pll_get_post(116); ?>
+        <form class="header-form header-form--active" method="POST" id="form--transfers" action="<?= the_permalink($transfer_page); ?>">
             <div class="form__row">
                 <div class="input__container">
                     <label for="from">From</label>
                     <select name="from" id="from" title="Pick up from">
-                        <option value="chania-airport">Chania Airport</option>
+                        <option value="Chania Airport">Chania Airport</option>
                     </select>
                 </div>
                 <div class="input__container">
-                    <label for="from">To</label>
+                    <label for="to">To</label>
                     <?php if ($stops_query->have_posts()) : ?>
                         <select name="to" id="to" title="Drop off to">
                             <?php while ($stops_query->have_posts()) : $stops_query->the_post(); ?>
-                                <option value="<?= get_the_ID(); ?>"><?= ucfirst(get_the_title()); ?></option>
+                                <option value="<?= get_the_title(); ?>"><?= ucfirst(get_the_title()); ?></option>
                             <?php endwhile; ?>
                             <?php wp_reset_postdata(); ?>
                         </select>
                     <?php endif; ?>
                 </div>
                 <div class="input__container">
-                    <label for="from">Date</label>
+                    <label for="date">Date</label>
                     <input type="text" name="date" class="transfer-date" title="Pick up date">
                 </div>
             </div>
             <div class="form__row form__row--bottom">
                 <div class="input__container">
                     <input type="hidden" name="adults" id="adults" value="2">
-                    <label class="user-select--none" for="from">Adults (13+)</label>
+                    <label class="user-select--none" for="adults">Adults (13+)</label>
                     <div class="input-number__container">
                         <span data-operation="minus" data-input=".header-form--active input[name='adults']" data-display-value=".header-form--active #adults-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="adults-value" class="user-select--none">2</span>
@@ -65,7 +66,7 @@ $tours_query = new WP_Query($tours_args);
                 </div>
                 <div class="input__container">
                     <input type="hidden" name="children" id="children" value="0">
-                    <label class="user-select--none" for="from">Children (3 - 12)</label>
+                    <label class="user-select--none" for="children">Children (3 - 12)</label>
                     <div class="input-number__container">
                         <span data-operation="minus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="children-value" class="user-select--none">0</span>
@@ -74,7 +75,7 @@ $tours_query = new WP_Query($tours_args);
                 </div>
                 <div class="input__container">
                     <input type="hidden" name="infants" id="infants" value="0">
-                    <label class="user-select--none" for="from">Infants (0 - 2)</label>
+                    <label class="user-select--none" for="infants">Infants (0 - 2)</label>
                     <div class="input-number__container">
                         <span data-operation="minus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="infants-value" class="user-select--none">0</span>
@@ -107,14 +108,14 @@ $tours_query = new WP_Query($tours_args);
                     <?php endif; ?>
                 </div>
                 <div class="input__container">
-                    <label for="from">Date</label>
+                    <label for="date">Date</label>
                     <input type="text" name="date" class="transfer-date" title="Pick up date">
                 </div>
             </div>
             <div class="form__row form__row--bottom">
                 <div class="input__container">
                     <input type="hidden" name="adults" id="adults" value="2">
-                    <label class="user-select--none" for="from">Adults (13+)</label>
+                    <label class="user-select--none" for="adults">Adults (13+)</label>
                     <div class="input-number__container">
                         <span data-operation="minus" data-input=".header-form--active input[name='adults']" data-display-value=".header-form--active #adults-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="adults-value" class="user-select--none">2</span>
@@ -123,7 +124,7 @@ $tours_query = new WP_Query($tours_args);
                 </div>
                 <div class="input__container">
                     <input type="hidden" name="children" id="children" value="0">
-                    <label class="user-select--none" for="from">Children (3 - 12)</label>
+                    <label class="user-select--none" for="children">Children (3 - 12)</label>
                     <div class="input-number__container">
                         <span data-operation="minus" data-input=".header-form--active input[name='children']" data-display-value=".header-form--active #children-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="children-value" class="user-select--none">0</span>
@@ -132,7 +133,7 @@ $tours_query = new WP_Query($tours_args);
                 </div>
                 <div class="input__container">
                     <input type="hidden" name="infants" id="infants" value="0">
-                    <label class="user-select--none" for="from">Infants (0 - 2)</label>
+                    <label class="user-select--none" for="infants">Infants (0 - 2)</label>
                     <div class="input-number__container">
                         <span data-operation="minus" data-input=".header-form--active input[name='infants']" data-display-value=".header-form--active #infants-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
                         <span id="infants-value" class="user-select--none">0</span>

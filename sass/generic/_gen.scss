@@ -5,15 +5,31 @@
 		width: 100%;
 		height: 100%;
 	}
+
+	&--large {
+		width: 30px;
+		height: 30px;
+	}
+
 	&--medium {
 		width: 22px;
 		height: 22px;
+	}
+
+	&--small {
+		width: 18px;
+		height: 18px;
 	}
 }
 
 a {
 	color: var(--text-dark);
 	text-decoration: none;
+}
+
+p {
+	font-size: 16px;
+	line-height: 30px;
 }
 
 ul {
@@ -32,6 +48,161 @@ select {
 	color: var(--text-dark);
 }
 
+.site-main {
+	margin-bottom: 100px;
+}
+
 .text--small {
 	font-size: 12px;
+}
+
+.form-row {
+	display: flex;
+}
+
+.input-container-with-label {
+	position: relative;
+
+	.placeholder {
+		position: absolute;
+		top: 12px;
+		left: 20px;
+		pointer-events: none;
+		z-index: 1;
+		font-size: 14px;
+		transition: all ease-in-out 250ms;
+		background-color: transparent;
+		padding: 0 3px;
+		&--active {
+			top: -8px;
+			left: 20px;
+			font-size: 11px;
+			background-color: var(--text-dark);
+		}
+	}
+}
+
+.wpcf7-not-valid-tip,
+.wpcf7 form .wpcf7-response-output {
+	font-size: 13px;
+	padding: 10px 20px;
+}
+
+.container {
+	max-width: 100%;
+	width: 1500px;
+	margin: auto;
+}
+
+.page-intro {
+	text-align: center;
+	margin-bottom: 150px;
+	&__title {
+		font-size: 45px;
+		margin-bottom: 25px;
+	}
+
+	&__text {
+		p {
+			line-height: 30px;
+			font-size: 18px;
+		}
+	}
+}
+
+.btn {
+	display: inline-flex;
+	width: 180px;
+	height: 50px;
+	align-items: center;
+	padding: 0 0 0 15px;
+	gap: 10px;
+	transition: all ease-in-out 250ms;
+	&--primary {
+		color: #fff;
+		background-color: #6694c8d7;
+		&:hover {
+			background-color: var(--cyan);
+		}
+	}
+
+	&--secondary {
+		color: #fff;
+		background-color: #a7af73d7;
+		&:hover {
+			background-color: var(--yellow);
+		}
+	}
+
+	&--tertiary {
+		background-color: #a7af73d7;
+		color: #fff;
+		border-radius: 20px;
+		justify-content: center;
+		padding-left: 0;
+		&:hover {
+			background-color: var(--yellow);
+		}
+	}
+}
+
+.ul--row {
+	display: flex;
+}
+
+.form__container {
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	input:not(input[type="checkbox"]) {
+		height: 42px;
+		border: 1px solid var(--primary);
+		background-color: #fff;
+		color: var(--text-dark);
+		outline: none;
+		width: 100%;
+	}
+
+	.placeholder--active {
+		background-color: #fff;
+		width: fit-content !important;
+		top: -6px;
+	}
+
+	textarea {
+		width: 100%;
+		border: 1px solid var(--primary);
+		background-color: #fff;
+		color: var(--text-dark);
+		outline: none;
+	}
+
+	input[type="submit"] {
+		background-color: var(--primary) !important;
+		color: #fff !important;
+		cursor: pointer;
+		width: fit-content !important;
+		padding: 0 25px;
+		transition: all ease-in-out 250ms;
+		&:hover {
+			background-color: var(--text-dark) !important;
+		}
+	}
+
+	.wpcf7-spinner {
+		display: none;
+	}
+
+	.form-row {
+		gap: 20px;
+		.input-container-with-label {
+			width: 100%;
+
+			span {
+				width: 100%;
+			}
+		}
+	}
 }

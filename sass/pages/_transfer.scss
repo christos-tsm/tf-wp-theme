@@ -1,9 +1,64 @@
 .archive-content {
 	flex: 1;
 	&__container {
-		max-width: 100%;
-		width: 1500px;
-		margin: auto;
 		display: flex;
+		gap: 50px;
+	}
+
+	.archive-car {
+		border: none;
+		.car-thumbnail {
+			width: 300px;
+			height: auto;
+		}
+
+		.car-details {
+			h3 {
+				font-size: 27px;
+				margin-bottom: 35px;
+			}
+			ul li {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 17px;
+				font-weight: 500;
+			}
+		}
+		.car-price {
+			max-width: 230px;
+			width: 230px;
+			background-color: var(--text-dark);
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			.price {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				p {
+					font-size: 45px;
+				}
+			}
+
+			.book-car {
+				a {
+					color: #fff;
+					font-size: 20px;
+					display: flex;
+					padding: 20px 0;
+					justify-content: center;
+					transition: all ease-in-out 250ms;
+				}
+			}
+		}
+		&:hover {
+			.book-car {
+				a {
+					background-color: var(--primary);
+				}
+			}
+		}
 	}
 }

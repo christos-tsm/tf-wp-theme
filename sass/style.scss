@@ -25,7 +25,10 @@ Text Domain: taxi-transfer
 @import "./components/breadcrump";
 @import "./components/transfer-filters";
 @import "./components/footer";
+@import "./components/excursion-card";
 /* Pages
 --------------------------------------------- */
 @import "./pages/homepage";
 @import "./pages/transfer";
+@import "./pages/excursions";
+@import "./pages/single-tours";

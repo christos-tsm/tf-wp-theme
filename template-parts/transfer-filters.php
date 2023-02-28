@@ -8,11 +8,16 @@ $stops_args = array(
 $stops_query = new WP_Query($stops_args);
 ?>
 <aside class="archive-filters__container">
+
     <form action="POST" class="archive-filters">
         <div class="input__container">
             <label for="from">From</label>
             <select name="from" id="from" title="Pick up from">
-                <option value="chania-airport">Chania Airport</option>
+                <?php if (isset($_POST['from']) && !empty($_POST['from'])) : ?>
+                    <option value="chania-airport" selected>Chania Airport</option>
+                <?php else : ?>
+                    <option value="chania-airport">Chania Airport</option>
+                <?php endif; ?>
             </select>
         </div>
         <div class="seperator"></div>
@@ -21,7 +26,11 @@ $stops_query = new WP_Query($stops_args);
             <?php if ($stops_query->have_posts()) : ?>
                 <select name="to" id="to" title="Drop off to">
                     <?php while ($stops_query->have_posts()) : $stops_query->the_post(); ?>
-                        <option value="<?= get_the_ID(); ?>"><?= ucfirst(get_the_title()); ?></option>
+                        <?php if (isset($_POST['to']) && !empty($_POST['to']) && $_POST['to'] === ucfirst(get_the_title())) : ?>
+                            <option selected value="<?= get_the_ID(); ?>"><?= ucfirst(get_the_title()); ?></option>
+                        <?php else : ?>
+                            <option value="<?= get_the_ID(); ?>"><?= ucfirst(get_the_title()); ?></option>
+                        <?php endif; ?>
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>
                 </select>
@@ -30,7 +39,12 @@ $stops_query = new WP_Query($stops_args);
         <div class="seperator"></div>
         <div class="input__container">
             <label for="from">Date</label>
-            <input type="text" name="date" class="transfer-date" title="Pick up date">
+            <?php if (isset($_POST['date']) && !empty($_POST['date'])) : ?>
+                <input type="hidden" id="date-exists" data-date="<?= $_POST['date'] ?>">
+                <input value="<?= $_POST['date'] ?>" type="text" name="date" class="transfer-date" title="Pick up date">
+            <?php else : ?>
+                <input type="text" name="date" class="transfer-date" title="Pick up date">
+            <?php endif; ?>
         </div>
         <div class="seperator"></div>
         <div class="input__group">
@@ -39,7 +53,11 @@ $stops_query = new WP_Query($stops_args);
                 <label class="user-select--none" for="from">Adults <span class="text--small">(13+)</span></label>
                 <div class="input-number__container">
                     <span data-operation="minus" data-input="input[name='adults']" data-display-value="#adults-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
-                    <span id="adults-value" class="user-select--none">2</span>
+                    <?php if (isset($_POST['adults']) && !empty($_POST['adults'])) : ?>
+                        <span id="adults-value" class="user-select--none"><?= intval($_POST['adults']) ?></span>
+                    <?php else : ?>
+                        <span id="adults-value" class="user-select--none">2</span>
+                    <?php endif; ?>
                     <span data-operation="plus" data-input="input[name='adults']" data-display-value="#adults-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/plus.svg'); ?></span>
                 </div>
             </div>
@@ -47,8 +65,12 @@ $stops_query = new WP_Query($stops_args);
                 <input type="hidden" name="children" id="children" value="0">
                 <label class="user-select--none" for="from">Children <span class="text--small">(3 - 12)</span></label>
                 <div class="input-number__container">
-                    <span data-operation="minus" data-input="input[name='children']" data-display-value="#children-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
-                    <span id="children-value" class="user-select--none">0</span>
+                    <span data-operation="minus" data-input="input[name='children']" data-display-value="#children-value" class="handle-value <?= isset($_POST['children']) && !empty($_POST['children']) ? "" : "handle-value--disabled" ?> icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
+                    <?php if (isset($_POST['children']) && !empty($_POST['children'])) : ?>
+                        <span id="children-value" class="user-select--none"><?= intval($_POST['children']) ?></span>
+                    <?php else :  ?>
+                        <span id="children-value" class="user-select--none">0</span>
+                    <?php endif; ?>
                     <span data-operation="plus" data-input="input[name='children']" data-display-value="#children-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/plus.svg'); ?></span>
                 </div>
             </div>
@@ -56,8 +78,12 @@ $stops_query = new WP_Query($stops_args);
                 <input type="hidden" name="infants" id="infants" value="0">
                 <label class="user-select--none" for="from">Infants <span class="text--small">(0 - 2)</span></label>
                 <div class="input-number__container">
-                    <span data-operation="minus" data-input="input[name='infants']" data-display-value="#infants-value" class="handle-value handle-value--disabled icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
-                    <span id="infants-value" class="user-select--none">0</span>
+                    <span data-operation="minus" data-input="input[name='infants']" data-display-value="#infants-value" class="handle-value <?= isset($_POST['children']) && !empty($_POST['children']) ? "" : "handle-value--disabled" ?> icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
+                    <?php if (isset($_POST['infants']) && !empty($_POST['infants'])) : ?>
+                        <span id="infants-value" class="user-select--none"><?= intval($_POST['infants']); ?></span>
+                    <?php else : ?>
+                        <span id="infants-value" class="user-select--none">0</span>
+                    <?php endif; ?>
                     <span data-operation="plus" data-input="input[name='infants']" data-display-value="#infants-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/plus.svg'); ?></span>
                 </div>
             </div>
