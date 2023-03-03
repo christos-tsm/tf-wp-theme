@@ -54,3 +54,8 @@ require get_stylesheet_directory() . '/inc/string-translation.php';
  * Custom Post Types
  */
 require get_stylesheet_directory() . '/inc/custom-post-types.php';
+
+/**
+ * AJAX Transfer
+ */
+require get_stylesheet_directory() . '/inc/transfer-ajax.php';

@@ -1,5 +1,7 @@
 <?php
 $hours = get_field('hours');
+$sightseeing = get_field('sightseeing');
+$walking = get_field('walking');
 ?>
 <article class="excursion-card">
     <div class="excursion-card__image">
@@ -18,6 +20,12 @@ $hours = get_field('hours');
             <ul>
                 <?php if ($hours) : ?>
                     <li><span class="icon icon--small"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/clock.svg'); ?></span> <?= esc_attr($hours) ?> <?php pll_e('Hours'); ?></li>
+                <?php endif; ?>
+                <?php if ($sightseeing) : ?>
+                    <li><span class="icon icon--small"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/sightseeing.svg'); ?></span> <?php pll_e('Sightseeing'); ?></li>
+                <?php endif; ?>
+                <?php if ($walking) : ?>
+                    <li><span class="icon icon--small"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/walking.svg'); ?></span> <?php pll_e('Walking'); ?></li>
                 <?php endif; ?>
             </ul>
         </div>

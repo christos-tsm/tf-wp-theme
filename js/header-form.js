@@ -86,5 +86,27 @@
 		$(".header-form__submit button").on("click", function () {
 			$(".header-form--active").submit();
 		});
+		/** Hide From / To options based on what is selected */
+		$("#select2-to-container").on("click", function () {
+			let selectedFromValue = $("#select2-from-container").text();
+			$("#select2-to-results li").each(function () {
+				if ($(this).text() === selectedFromValue) {
+					$(this).addClass("hidden");
+				} else {
+					$(this).removeClass("hidden");
+				}
+			});
+		});
+
+		$("#select2-from-container").on("click", function () {
+			let selectedToValue = $("#select2-to-container").text();
+			$("#select2-from-results li").each(function () {
+				if ($(this).text() === selectedToValue) {
+					$(this).addClass("hidden");
+				} else {
+					$(this).removeClass("hidden");
+				}
+			});
+		});
 	});
 })(jQuery);

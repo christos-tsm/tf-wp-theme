@@ -8,7 +8,6 @@ $stops_args = array(
 $stops_query = new WP_Query($stops_args);
 ?>
 <aside class="archive-filters__container">
-
     <form action="POST" class="archive-filters">
         <div class="input__container">
             <label for="from">From</label>
@@ -27,9 +26,9 @@ $stops_query = new WP_Query($stops_args);
                 <select name="to" id="to" title="Drop off to">
                     <?php while ($stops_query->have_posts()) : $stops_query->the_post(); ?>
                         <?php if (isset($_POST['to']) && !empty($_POST['to']) && $_POST['to'] === ucfirst(get_the_title())) : ?>
-                            <option selected value="<?= get_the_ID(); ?>"><?= ucfirst(get_the_title()); ?></option>
+                            <option selected value="<?= ucfirst(get_the_title()); ?>"><?= ucfirst(get_the_title()); ?></option>
                         <?php else : ?>
-                            <option value="<?= get_the_ID(); ?>"><?= ucfirst(get_the_title()); ?></option>
+                            <option value="<?= ucfirst(get_the_title()); ?>"><?= ucfirst(get_the_title()); ?></option>
                         <?php endif; ?>
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>
@@ -49,7 +48,7 @@ $stops_query = new WP_Query($stops_args);
         <div class="seperator"></div>
         <div class="input__group">
             <div class="input__container">
-                <input type="hidden" name="adults" id="adults" value="2">
+                <input type="hidden" name="adults" id="adults" value="<?= isset($_POST['adults']) && !empty($_POST['adults']) ? $_POST['adults'] : '2' ?>">
                 <label class="user-select--none" for="from">Adults <span class="text--small">(13+)</span></label>
                 <div class="input-number__container">
                     <span data-operation="minus" data-input="input[name='adults']" data-display-value="#adults-value" class="handle-value icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
@@ -62,7 +61,7 @@ $stops_query = new WP_Query($stops_args);
                 </div>
             </div>
             <div class="input__container">
-                <input type="hidden" name="children" id="children" value="0">
+                <input type="hidden" name="children" id="children" value="<?= isset($_POST['children']) && !empty($_POST['children']) ? $_POST['children'] : '0' ?>">
                 <label class="user-select--none" for="from">Children <span class="text--small">(3 - 12)</span></label>
                 <div class="input-number__container">
                     <span data-operation="minus" data-input="input[name='children']" data-display-value="#children-value" class="handle-value <?= isset($_POST['children']) && !empty($_POST['children']) ? "" : "handle-value--disabled" ?> icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
@@ -75,7 +74,7 @@ $stops_query = new WP_Query($stops_args);
                 </div>
             </div>
             <div class="input__container">
-                <input type="hidden" name="infants" id="infants" value="0">
+                <input type="hidden" name="infants" id="infants" value="<?= isset($_POST['infants']) && !empty($_POST['infants']) ? $_POST['infants'] : '0' ?>">
                 <label class="user-select--none" for="from">Infants <span class="text--small">(0 - 2)</span></label>
                 <div class="input-number__container">
                     <span data-operation="minus" data-input="input[name='infants']" data-display-value="#infants-value" class="handle-value <?= isset($_POST['children']) && !empty($_POST['children']) ? "" : "handle-value--disabled" ?> icon icon--medium"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/minus.svg'); ?></span>
@@ -92,7 +91,7 @@ $stops_query = new WP_Query($stops_args);
         <div class="return__container">
             <label class="switch">
                 Return
-                <input type="checkbox">
+                <input type="checkbox" name="return" value="0">
                 <span class="slider round"></span>
             </label>
         </div>

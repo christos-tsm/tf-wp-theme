@@ -92,6 +92,10 @@ select {
 	max-width: 100%;
 	width: 1500px;
 	margin: auto;
+
+	&--big {
+		width: 1700px;
+	}
 }
 
 .page-intro {
@@ -205,4 +209,8 @@ select {
 			}
 		}
 	}
+}
+
+.hidden {
+	display: none;
 }

@@ -124,6 +124,10 @@ select {
 	margin: auto;
 }
 
+.container--big {
+	width: 1700px;
+}
+
 .page-intro {
 	text-align: center;
 	margin-bottom: 150px;
@@ -239,6 +243,10 @@ select {
 
 .form__container .form-row .input-container-with-label span {
 	width: 100%;
+}
+
+.hidden {
+	display: none;
 }
 
 /* Components
@@ -427,6 +435,7 @@ select {
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
 	top: 6px !important;
+	pointer-events: none;
 }
 
 .select2-container--open .select2-dropdown--below {
@@ -850,6 +859,11 @@ input:checked + .slider:before {
 	margin-top: auto;
 }
 
+.excursion-card__details ul {
+	display: flex;
+	gap: 40px;
+}
+
 .excursion-card__details li {
 	display: flex;
 	font-size: 12px;
@@ -972,7 +986,7 @@ input:checked + .slider:before {
 }
 
 .single-tours-intro {
-	height: 100vh;
+	height: calc(100vh - 158px);
 	position: relative;
 }
 
@@ -1355,6 +1369,137 @@ input.hidden {
 .single-tours-video--active .overlay {
 	opacity: 1;
 	pointer-events: all;
+}
+
+.contact-intro {
+	display: flex;
+	gap: 80px;
+}
+
+.contact-intro h2 {
+	margin-bottom: 15px;
+}
+
+.contact-intro li {
+	margin-bottom: 15px;
+}
+
+.contact-intro li a:hover {
+	color: var(--primary);
+}
+
+.contact-intro__title {
+	max-width: 460px;
+}
+
+.contact-intro__social ul {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.contact-intro__social ul li a svg path {
+	fill: var(--text-dark);
+}
+
+.contact-intro__social ul li a:hover svg path {
+	fill: var(--primary);
+}
+
+.contact-form-flex {
+	display: flex;
+	align-items: center;
+	gap: 70px;
+}
+
+.contact-form__container {
+	margin: 50px 0 0;
+	padding: 50px 0;
+	background-color: var(--yellow);
+}
+
+.contact-form__thumbnail {
+	flex: 1;
+}
+
+.contact-form__thumbnail img {
+	width: 100%;
+	height: 750px;
+	object-fit: cover;
+}
+
+.contact-form__container .input-container-with-label {
+	flex: 1;
+}
+
+.contact-form__container .input-container-with-label .placeholder {
+	text-transform: uppercase;
+}
+
+.contact-form__container .form-row {
+	gap: 30px;
+	margin-bottom: 30px;
+	align-items: center;
+}
+
+.contact-form__container textarea,
+.contact-form__container input:not(input[type="submit"]):not(input[type="checkbox"]) {
+	padding: 20px 8px 10px;
+	border: none;
+	border-bottom: 1px solid #707070;
+	width: 100%;
+	background-color: transparent;
+	outline: none;
+}
+
+.contact-form__container .wpcf7-list-item {
+	margin: 0;
+}
+
+.contact-form__container .wpcf7-list-item label {
+	display: flex;
+	gap: 3px;
+	cursor: pointer;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.contact-form__container .form-submit-btn {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	font-weight: 600;
+	font-size: 20px;
+	transition: all ease-in-out 250ms;
+}
+
+.contact-form__container .form-submit-btn .submit-text {
+	position: relative;
+	z-index: 2;
+	background-color: var(--yellow);
+}
+
+.contact-form__container .form-submit-btn .icon {
+	transition: all ease-in-out 250ms;
+	transform: translateX(-25px);
+}
+
+.contact-form__container .form-submit-btn:hover {
+	color: #292929;
+}
+
+.contact-form__container .form-submit-btn:hover .icon {
+	transform: translateX(5px);
+}
+
+.contact-form__container .input-container-with-label .placeholder--active {
+	background-color: var(--yellow);
+	color: var(--text-dark);
 }
 
 /*# sourceMappingURL=style.css.map */

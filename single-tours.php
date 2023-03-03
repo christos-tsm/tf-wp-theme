@@ -9,7 +9,7 @@ $video = get_field('video');
         <img src="<?= the_post_thumbnail_url('large') ?>" alt="<?php the_title(); ?>">
     <?php endif; ?>
     <div class="single-tours-intro__buttons container">
-        <a href="<?= $gallery[0]['url'] ?>" data-lightbox="gallery" class="btn btn--primary">
+        <a href="javascript:void(0);" id="open-gallery" class="btn btn--primary">
             <span class="icon icon--large"><?= file_get_contents(get_stylesheet_directory() . '/assets/images/camera.svg'); ?></span>
             <?php pll_e('View Photos'); ?>
         </a>
@@ -20,7 +20,7 @@ $video = get_field('video');
     </div>
     <div class="single-tours-gallery">
         <?php foreach ($gallery as $image) : ?>
-            <a data-lightbox="gallery" href="<?= esc_url($image['url']); ?>">
+            <a class="lightboxed" rel="group1" href="<?= esc_url($image['url']); ?>">
                 <img src="<?= esc_url($image['sizes']['medium']) ?>" alt="">
             </a>
         <?php endforeach; ?>

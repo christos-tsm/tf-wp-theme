@@ -32,23 +32,32 @@ $tours_query = new WP_Query($tours_args);
         <?php $transfer_page = pll_get_post(116); ?>
         <form class="header-form header-form--active" method="POST" id="form--transfers" action="<?= the_permalink($transfer_page); ?>">
             <div class="form__row">
-                <div class="input__container">
-                    <label for="from">From</label>
-                    <select name="from" id="from" title="Pick up from">
-                        <option value="Chania Airport">Chania Airport</option>
-                    </select>
-                </div>
-                <div class="input__container">
-                    <label for="to">To</label>
-                    <?php if ($stops_query->have_posts()) : ?>
-                        <select name="to" id="to" title="Drop off to">
+                <?php if ($stops_query->have_posts()) : ?>
+                    <div class="input__container">
+                        <label for="from">From</label>
+                        <select name="from" id="from" title="Pick up from">
                             <?php while ($stops_query->have_posts()) : $stops_query->the_post(); ?>
                                 <option value="<?= get_the_title(); ?>"><?= ucfirst(get_the_title()); ?></option>
+
                             <?php endwhile; ?>
                             <?php wp_reset_postdata(); ?>
                         </select>
-                    <?php endif; ?>
-                </div>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($stops_query->have_posts()) : ?>
+                    <div class="input__container">
+                        <label for="to">To</label>
+                        <select name="to" id="to" title="Drop off to">
+                            <?php $index = 1; ?>
+                            <?php while ($stops_query->have_posts()) : $stops_query->the_post(); ?>
+                                <option <?= $index === 2 ? 'selected' : '' ?> value="<?= get_the_title(); ?>"><?= ucfirst(get_the_title()); ?></option>
+                                <?php $index++; ?>
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
+                        </select>
+                    </div>
+                <?php endif; ?>
                 <div class="input__container">
                     <label for="date">Date</label>
                     <input type="text" name="date" class="transfer-date" title="Pick up date">

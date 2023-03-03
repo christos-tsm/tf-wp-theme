@@ -1,6 +1,6 @@
 .single-tours {
 	&-intro {
-		height: 100vh;
+		height: calc(100vh - 158px);
 		position: relative;
 		img {
 			width: 100%;

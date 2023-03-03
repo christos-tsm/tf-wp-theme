@@ -37,6 +37,10 @@
 
 	&__details {
 		margin-top: auto;
+		ul {
+			display: flex;
+			gap: 40px;
+		}
 		li {
 			display: flex;
 			font-size: 12px;

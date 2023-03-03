@@ -123,6 +123,9 @@
 			$('input[name="date"]').val($('input[name="tour-date"]').val());
 		});
 		/** Single tours gallery & video */
+		$("#open-gallery").on("click", function () {
+			$(".single-tours-gallery > a").trigger("click");
+		});
 		$("#open-video").on("click", function () {
 			$(".single-tours-video").addClass("single-tours-video--active");
 			$("body").css("overflow", "hidden");
